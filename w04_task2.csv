@@ -1,4 +1,4 @@
-x,y,width,height
-10,10,100,20
-10,40,50,20
-10,70,80,20
+x,y,width,height,label
+10,10,100,20,Label1
+10,40,50,20,Label2
+10,70,80,20,Label3
