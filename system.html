@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="robots" content="NOINDEX,NOFOLLOW" />
+        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport' />
+        <link rel="icon" href="favicon.ico" />
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" />
+        <title>1Q 情報可視化論 Final Task</title>
+        <style type="text/css">
+            .graph {
+                min-height: 300px;
+                border: 1px solid #333;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 graph" data-type="bar" id="bar">
+
+                </div>
+                <div class="col-md-6 graph" data-type="line" id="line">
+
+                </div>
+            </div>
+        </div>
+        !<script src="final_1.js"></script>
+        <script src="final_2.js" type="text/javascript"></script>
+        <script src="https://www.google.com/jsapi"></script>
+        <script type="text/javascript">
+            var callback = function () {
+                var data = google.visualization.arrayToDataTable([
+                    ['月', '感染者数','交通事故発生数'],
+                    ['2020/03', 1992, 27763],
+                    ['2020/04', 12187,20805],
+                    ['2020/05', 2477,18107],
+                    ['2020/06', 1865,23846],
+                    ['2020/07',17651,24951],
+                    ['2020/08', 32129,24693],
+                    ['2020/09', 15194,25250],
+                    ['2020/10', 17744,28725],
+                    ['2020/11', 47501,28521],
+                    ['2020/12', 86926,31551],
+                    ['2021/01', 154988,23896],
+                    ['2021/02', 41896,23525],
+                    ['2021/03', 42450,26523],
+                    ['2021/04', 117737,25074]
+                ]);
+                var options = {
+                    title: '新型コロナウイルス感染者数と交通事故発生数　棒グラフ',
+                    height: 300,
+                    bar: {
+                        groupWidth: '65%'
+                    },
+                    isStacked: true
+                };
+                var dom = document.getElementById('bar');
+                var chart = new google.visualization.ColumnChart(dom);
+                chart.draw(data, options);
+            };
+
+            var callback2 = function () {
+                var data = google.visualization.arrayToDataTable([
+                    ['月', '感染者数','交通事故発生数'],
+                    ['2020/03', 1992, 27763],
+                    ['2020/04', 12187,20805],
+                    ['2020/05', 2477,18107],
+                    ['2020/06', 1865,23846],
+                    ['2020/07',17651,24951],
+                    ['2020/08', 32129,24693],
+                    ['2020/09', 15194,25250],
+                    ['2020/10', 17744,28725],
+                    ['2020/11', 47501,28521],
+                    ['2020/12', 86926,31551],
+                    ['2021/01', 154988,23896],
+                    ['2021/02', 41896,23525],
+                    ['2021/03', 42450,26523],
+                    ['2021/04', 117737,25074]
+                ]);
+                var options = {
+                    title: '新型コロナウイルス感染者数と交通事故発生数　折れ線グラフ',
+                    height: 300,
+                    isStacked: true
+                };
+                var dom = document.getElementById('line');
+                var chart = new google.visualization.LineChart(dom);
+                chart.draw(data, options);
+            };
+
+
+            google.load("visualization", "1", {
+                packages: ["corechart", "linechart"]
+            });
+            google.setOnLoadCallback(callback);
+            google.setOnLoadCallback(callback2);
+        </script>
+    </body>
+</html>
